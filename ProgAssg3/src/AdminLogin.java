@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -56,7 +57,7 @@ public class AdminLogin extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Admin Login");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 40));
+		lblNewLabel.setFont(new Font("Rockwell", Font.BOLD, 40));
 		lblNewLabel.setBounds(200, 40, 255, 60);
 		panel.add(lblNewLabel);
 		
@@ -79,6 +80,7 @@ public class AdminLogin extends JFrame {
 		UsernameTextField.setColumns(10);
 		
 		JButton ResetButton = new JButton("Reset");
+		ResetButton.setBackground(Color.WHITE);
 		ResetButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -91,12 +93,20 @@ public class AdminLogin extends JFrame {
 		panel.add(ResetButton);
 		
 		JButton btnLogin = new JButton("Login");
+		btnLogin.setBackground(Color.WHITE);
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-					if(UsernameTextField.getText().equals("Tan") && passwordField.getText().equals("abc123")) 
+					if(UsernameTextField.getText().equals("Tan") && passwordField.getText().equals("abc123")) {
 						JOptionPane.showMessageDialog(null, "Login Successful");
+						
+						AdminMenu menu = new AdminMenu(); //calling another frame/window
+						menu.setModalExclusionType(null);
+						menu.setVisible(true);
+						dispose();
+					
+					}
 					else
 						JOptionPane.showMessageDialog(null, "Login Unsuccessful");
 				} catch (Exception e1) {
@@ -111,5 +121,21 @@ public class AdminLogin extends JFrame {
 		passwordField = new JPasswordField();
 		passwordField.setBounds(200, 244, 255, 30);
 		panel.add(passwordField);
+		
+		JButton backButton = new JButton("Back");
+		backButton.setBackground(Color.WHITE);
+		backButton.setFont(new Font("Tahoma", Font.BOLD, 13));
+		backButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Cover cover = new Cover(); //calling another frame/window
+				cover.setModalExclusionType(null);
+				cover.setVisible(true);
+				dispose();
+				
+			}
+		});
+		backButton.setBounds(10, 11, 77, 30);
+		panel.add(backButton);
 	}
 }

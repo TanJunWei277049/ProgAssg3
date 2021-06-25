@@ -79,12 +79,20 @@ public class Cover extends JFrame {
 				
 			}
 		});
-		btnAdmin.setFont(new Font("Tahoma", Font.BOLD, 30));
+		btnAdmin.setFont(new Font("Tahoma", Font.BOLD, 28));
 		btnAdmin.setBounds(91, 353, 178, 57);
 		panel.add(btnAdmin);
 		
 		JButton btnCustomer = new JButton("Customer");
-		btnCustomer.setFont(new Font("Tahoma", Font.BOLD, 30));
+		btnCustomer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CustomerLogin customer = new CustomerLogin(); //calling another frame/window
+				customer.setModalExclusionType(null);
+				customer.setVisible(true);
+				dispose();
+			}
+		});
+		btnCustomer.setFont(new Font("Tahoma", Font.BOLD, 28));
 		btnCustomer.setBounds(422, 353, 178, 57);
 		panel.add(btnCustomer);
 	}
