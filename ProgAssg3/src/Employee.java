@@ -213,7 +213,7 @@ public class Employee extends JFrame {
 				}
 			}
 		});
-		btnDelete.setBounds(350, 228, 146, 38);
+		btnDelete.setBounds(360, 228, 146, 38);
 		contentPane.add(btnDelete);
 		btnDelete.setFont(new Font("Tahoma", Font.BOLD, 14));
 		

@@ -179,7 +179,7 @@ public class Finance extends JFrame {
 	
 				double profit = Integer.parseInt(textFieldIncome.getText())- totalExpense;
 				
-				textFieldRevenue.setText(textFieldIncome.getText());
+				textFieldRevenue.setText(String.valueOf(Double.parseDouble(textFieldIncome.getText())));
 				textFieldExpenses.setText(String.valueOf(totalExpense));
 				textFieldNetIncome.setText(String.valueOf(profit));
 			}
