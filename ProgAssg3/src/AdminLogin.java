@@ -108,7 +108,7 @@ public class AdminLogin extends JFrame {
 					
 					}
 					else
-						JOptionPane.showMessageDialog(null, "Login Unsuccessful");
+						JOptionPane.showMessageDialog(null, "Login unsuccessful!", "Error", JOptionPane.ERROR_MESSAGE);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, "Please enter the right user name and password");
 				}

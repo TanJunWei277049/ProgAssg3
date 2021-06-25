@@ -21,7 +21,7 @@ import javax.swing.JComboBox;
 public class ManageStorage extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
+	private static JTable table;
 	private JTextField textFieldStorageType;
 	private JTextField textFieldLocation;
 	private JTextField textFieldPrice;
@@ -167,7 +167,32 @@ DefaultTableModel model = (DefaultTableModel) table.getModel();
 			}
 		});
 		btnAdd.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnAdd.setBounds(78, 405, 143, 38);
+		btnAdd.setBounds(111, 405, 143, 38);
 		contentPane.add(btnAdd);
+		
+		JButton btnDelete = new JButton("DELETE");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel model = (DefaultTableModel)table.getModel();
+				if(table.getSelectedRow()==-1) {
+					if(table.getRowCount()==0) {
+						JOptionPane.showMessageDialog(null,"No data to delete",
+								"Membership Management System", JOptionPane.OK_OPTION);
+					}else {
+						JOptionPane.showMessageDialog(null,"Select a row to delete",
+								"Membership Management System", JOptionPane.OK_OPTION);
+					}
+				}else {
+					model.removeRow(table.getSelectedRow());
+				}
+			}
+		});
+		btnDelete.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnDelete.setBounds(410, 405, 146, 38);
+		contentPane.add(btnDelete);
+	}
+	
+	public static JTable getTable() {
+		return table;
 	}
 }

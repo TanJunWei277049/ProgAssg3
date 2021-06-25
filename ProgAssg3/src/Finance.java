@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
+import javax.swing.ImageIcon;
 
 public class Finance extends JFrame {
 
@@ -48,13 +49,13 @@ public class Finance extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 757, 492);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(0, 51, 153));
+		contentPane.setBackground(new Color(102, 153, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Financial Report");
-		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setForeground(new Color(0, 51, 153));
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 35));
 		lblNewLabel.setBounds(230, 0, 294, 44);
 		contentPane.add(lblNewLabel);
@@ -62,7 +63,7 @@ public class Finance extends JFrame {
 		JPanel contentPane_1 = new JPanel();
 		contentPane_1.setLayout(null);
 		contentPane_1.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane_1.setBackground(new Color(102, 153, 255));
+		contentPane_1.setBackground(new Color(153, 204, 255));
 		contentPane_1.setBounds(22, 71, 368, 79);
 		contentPane.add(contentPane_1);
 		
@@ -85,7 +86,7 @@ public class Finance extends JFrame {
 		JPanel contentPane_1_1 = new JPanel();
 		contentPane_1_1.setLayout(null);
 		contentPane_1_1.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane_1_1.setBackground(new Color(102, 153, 255));
+		contentPane_1_1.setBackground(new Color(153, 204, 255));
 		contentPane_1_1.setBounds(22, 183, 368, 184);
 		contentPane.add(contentPane_1_1);
 		
@@ -191,7 +192,7 @@ public class Finance extends JFrame {
 		JPanel contentPane_1_2 = new JPanel();
 		contentPane_1_2.setLayout(null);
 		contentPane_1_2.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane_1_2.setBackground(new Color(102, 153, 255));
+		contentPane_1_2.setBackground(new Color(153, 204, 255));
 		contentPane_1_2.setBounds(426, 71, 305, 279);
 		contentPane.add(contentPane_1_2);
 		
@@ -239,7 +240,7 @@ public class Finance extends JFrame {
 		contentPane.add(lblIncome_1);
 		
 		JLabel lblIncome_1_1 = new JLabel("Report");
-		lblIncome_1_1.setForeground(Color.WHITE);
+		lblIncome_1_1.setForeground(new Color(255, 255, 255));
 		lblIncome_1_1.setFont(new Font("Rockwell", Font.BOLD, 20));
 		lblIncome_1_1.setBounds(538, 36, 115, 33);
 		contentPane.add(lblIncome_1_1);
@@ -257,5 +258,19 @@ public class Finance extends JFrame {
 		backButton.setBackground(Color.WHITE);
 		backButton.setBounds(10, 7, 77, 30);
 		contentPane.add(backButton);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setBackground(new Color(255, 255, 255));
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Win 8\\git\\ProgAssg3\\ProgAssg3\\Icon\\Finance-Money.png"));
+		lblNewLabel_1.setBounds(639, 361, 76, 81);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("");
+		lblNewLabel_1_1.setIcon(new ImageIcon("C:\\Users\\Win 8\\git\\ProgAssg3\\ProgAssg3\\Icon\\Finance-Money-Bag-icon.png"));
+		lblNewLabel_1_1.setForeground(Color.WHITE);
+		lblNewLabel_1_1.setBackground(Color.WHITE);
+		lblNewLabel_1_1.setBounds(665, 0, 76, 70);
+		contentPane.add(lblNewLabel_1_1);
 	}
 }

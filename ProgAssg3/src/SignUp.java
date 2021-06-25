@@ -24,7 +24,7 @@ public class SignUp extends JFrame {
 	private JTextField textFieldEmail;
 	private JTextField textFieldPassword;
 	private JTextField textFieldConfirmPass;
-	static JTable table;
+	private static JTable table;
 
 	/**
 	 * Launch the application.

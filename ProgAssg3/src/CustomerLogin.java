@@ -123,10 +123,11 @@ public class CustomerLogin extends JFrame {
 					
 					if(login == true) {
 						JOptionPane.showMessageDialog(null, "Login successful!");
-						/*EventDetails ed = new EventDetails();
-						ed.setModalExclusionType(null);
-						ed.setVisible(true);
-						dispose();*/
+						
+						StorageDescription register = new StorageDescription(); //calling another frame/window
+						register.setModalExclusionType(null);
+						register.setVisible(true);
+						dispose();
 					}
 					else 
 						JOptionPane.showMessageDialog(null, "Login unsuccessful!", "Error", JOptionPane.ERROR_MESSAGE);

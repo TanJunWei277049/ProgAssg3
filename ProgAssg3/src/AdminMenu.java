@@ -112,6 +112,14 @@ public class AdminMenu extends JFrame {
 		contentPane_1_1.add(btnFinance);
 		
 		JButton btnManageStorage = new JButton("Manage Storage");
+		btnManageStorage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ManageStorage manageStorage = new ManageStorage(); //calling another frame/window
+				manageStorage.setModalExclusionType(null);
+				manageStorage.setVisible(true);
+				dispose();
+			}
+		});
 		btnManageStorage.setFont(new Font("Rockwell", Font.BOLD, 17));
 		btnManageStorage.setBounds(25, 38, 240, 60);
 		contentPane_1_1.add(btnManageStorage);
