@@ -46,30 +46,34 @@ public class AdminMenu extends JFrame {
 		JPanel contentPane_1 = new JPanel();
 		contentPane_1.setLayout(null);
 		contentPane_1.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane_1.setBackground(new Color(153, 255, 255));
-		contentPane_1.setBounds(23, 11, 642, 102);
+		contentPane_1.setBackground(new Color(153, 204, 255));
+		contentPane_1.setBounds(10, 11, 670, 102);
 		contentPane.add(contentPane_1);
 		
 		JLabel lblNewLabel = new JLabel("Welcome To Admin Portal");
 		lblNewLabel.setForeground(new Color(0, 51, 153));
 		lblNewLabel.setFont(new Font("Rockwell", Font.BOLD, 45));
-		lblNewLabel.setBounds(30, 11, 602, 80);
+		lblNewLabel.setBounds(41, 11, 602, 80);
 		contentPane_1.add(lblNewLabel);
 		
 		JPanel contentPane_1_1 = new JPanel();
 		contentPane_1_1.setLayout(null);
 		contentPane_1_1.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane_1_1.setBackground(new Color(153, 255, 255));
-		contentPane_1_1.setBounds(23, 130, 642, 316);
+		contentPane_1_1.setBackground(new Color(153, 204, 255));
+		contentPane_1_1.setBounds(10, 130, 670, 330);
 		contentPane.add(contentPane_1_1);
 		
 		JButton btnAdvertisement = new JButton("Manage Advertisement");
 		btnAdvertisement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ManageAdvertisement ma = new ManageAdvertisement(); //calling another frame/window
+				ma.setModalExclusionType(null);
+				ma.setVisible(true);
+				dispose();
 			}
 		});
 		btnAdvertisement.setFont(new Font("Rockwell", Font.BOLD, 17));
-		btnAdvertisement.setBounds(339, 38, 240, 60);
+		btnAdvertisement.setBounds(374, 38, 240, 60);
 		contentPane_1_1.add(btnAdvertisement);
 		
 		JButton btnLogOut = new JButton("Log Out");
@@ -82,7 +86,7 @@ public class AdminMenu extends JFrame {
 			}
 		});
 		btnLogOut.setFont(new Font("Rockwell", Font.BOLD, 17));
-		btnLogOut.setBounds(208, 215, 240, 60);
+		btnLogOut.setBounds(374, 219, 240, 60);
 		contentPane_1_1.add(btnLogOut);
 		
 		JButton btnEmployee = new JButton("Employee");
@@ -95,7 +99,7 @@ public class AdminMenu extends JFrame {
 			}
 		});
 		btnEmployee.setFont(new Font("Rockwell", Font.BOLD, 17));
-		btnEmployee.setBounds(25, 130, 240, 60);
+		btnEmployee.setBounds(60, 219, 240, 60);
 		contentPane_1_1.add(btnEmployee);
 		
 		JButton btnFinance = new JButton("Finance");
@@ -108,20 +112,33 @@ public class AdminMenu extends JFrame {
 			}
 		});
 		btnFinance.setFont(new Font("Rockwell", Font.BOLD, 17));
-		btnFinance.setBounds(339, 130, 240, 60);
+		btnFinance.setBounds(374, 130, 240, 60);
 		contentPane_1_1.add(btnFinance);
 		
 		JButton btnManageStorage = new JButton("Manage Storage");
 		btnManageStorage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ManageStorage manageStorage = new ManageStorage(); //calling another frame/window
+				ManageStorageType manageStorage = new ManageStorageType(); //calling another frame/window
 				manageStorage.setModalExclusionType(null);
 				manageStorage.setVisible(true);
 				dispose();
 			}
 		});
 		btnManageStorage.setFont(new Font("Rockwell", Font.BOLD, 17));
-		btnManageStorage.setBounds(25, 38, 240, 60);
+		btnManageStorage.setBounds(60, 38, 240, 60);
 		contentPane_1_1.add(btnManageStorage);
+		
+		JButton btnManageCompany = new JButton("Edit Information");
+		btnManageCompany.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EditCompanyBackground editcb = new EditCompanyBackground(); //calling another frame/window
+				editcb.setModalExclusionType(null);
+				editcb.setVisible(true);
+				dispose();
+			}
+		});
+		btnManageCompany.setFont(new Font("Rockwell", Font.BOLD, 17));
+		btnManageCompany.setBounds(60, 130, 240, 60);
+		contentPane_1_1.add(btnManageCompany);
 	}
 }

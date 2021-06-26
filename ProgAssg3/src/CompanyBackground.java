@@ -5,20 +5,21 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.border.MatteBorder;
-import javax.swing.JScrollPane;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import javax.swing.UIManager;
+import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JTextArea;
 
-public class StorageDescription extends JFrame {
+public class CompanyBackground extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
+	private JTextArea CompanyAddress;
+	private JTextArea Objective;
 
 	/**
 	 * Launch the application.
@@ -27,7 +28,7 @@ public class StorageDescription extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					StorageDescription frame = new StorageDescription();
+					CompanyBackground frame = new CompanyBackground();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,52 +40,22 @@ public class StorageDescription extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public StorageDescription() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 688, 486);
+	public CompanyBackground() {
+		setBounds(100, 100, 736, 487);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 255, 255));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(224, 96, 438, 225);
-		contentPane.add(scrollPane_1);
-		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Storage Type", "Price Per Day", "Location"
-			}
-		));
-		table.setFont(new Font("Tahoma", Font.BOLD, 11));
-		scrollPane_1.setViewportView(table);
-		
-		JLabel lblStorageDescription = new JLabel("Storage Description");
-		lblStorageDescription.setForeground(Color.BLACK);
-		lblStorageDescription.setFont(new Font("Rockwell", Font.BOLD, 40));
-		lblStorageDescription.setBounds(251, 11, 411, 60);
-		contentPane.add(lblStorageDescription);
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBackground(new Color(102, 153, 255));
-		panel.setBounds(-4, 0, 218, 448);
+		panel.setBounds(0, 0, 218, 448);
 		contentPane.add(panel);
 		
 		JLabel lblNewLabel = new JLabel("Home");
-		lblNewLabel.setForeground(Color.BLACK);
-		lblNewLabel.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				CompanyBackground cb = new CompanyBackground(); //calling another frame/window
-				cb.setModalExclusionType(null);
-				cb.setVisible(true);
-				dispose();
-			}
-		});
+		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Rockwell", Font.BOLD, 20));
 		lblNewLabel.setBounds(10, 45, 85, 24);
 		panel.add(lblNewLabel);
@@ -105,7 +76,16 @@ public class StorageDescription extends JFrame {
 		panel.add(lblAdvertisement);
 		
 		JLabel lblStorageDescription_1 = new JLabel("Storage Description");
-		lblStorageDescription_1.setForeground(new Color(255, 255, 255));
+		lblStorageDescription_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				StorageDescription storage = new StorageDescription(); //calling another frame/window
+				storage.setModalExclusionType(null);
+				storage.setVisible(true);
+				dispose();
+			}
+		});
+		lblStorageDescription_1.setForeground(Color.BLACK);
 		lblStorageDescription_1.setFont(new Font("Rockwell", Font.BOLD, 20));
 		lblStorageDescription_1.setBounds(10, 207, 198, 24);
 		panel.add(lblStorageDescription_1);
@@ -122,7 +102,7 @@ public class StorageDescription extends JFrame {
 			}
 		});
 		lblBuyNow.setFont(new Font("Rockwell", Font.BOLD, 20));
-		lblBuyNow.setBounds(10, 287, 208, 24);
+		lblBuyNow.setBounds(10, 287, 171, 24);
 		panel.add(lblBuyNow);
 		
 		JLabel lblLogOut = new JLabel("Log Out");
@@ -140,25 +120,32 @@ public class StorageDescription extends JFrame {
 		lblLogOut.setBounds(10, 373, 171, 24);
 		panel.add(lblLogOut);
 		
-		JTable t = ManageStorageType.getTable();
-		String type;
-		String price;
-		String location;
+		JLabel lblCompanyBackground = new JLabel("Company background");
+		lblCompanyBackground.setForeground(Color.BLACK);
+		lblCompanyBackground.setFont(new Font("Rockwell", Font.BOLD, 40));
+		lblCompanyBackground.setBounds(228, 11, 482, 60);
+		contentPane.add(lblCompanyBackground);
 		
-		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		JLabel lblCompanyAddress = new JLabel("Company Address : ");
+		lblCompanyAddress.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblCompanyAddress.setBounds(228, 96, 214, 44);
+		contentPane.add(lblCompanyAddress);
 		
-		for(int i = 0; i<t.getRowCount(); i++) {
-			type = String.valueOf(t.getValueAt(i, 0));
-			price = String.valueOf(t.getValueAt(i, 1));
-			location = String.valueOf(t.getValueAt(i, 2));
-			
-			model.addRow(new Object[]{
-					type,
-					price,
-					location,
-			});
-			
-		}
+		CompanyAddress = new JTextArea();
+		JTextArea ca = EditCompanyBackground.getCompany();
+		CompanyAddress = ca;
+		CompanyAddress.setBounds(228, 151, 421, 83);
+		contentPane.add(CompanyAddress);
 		
+		JLabel lblNewLabel_1 = new JLabel("Objective : ");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel_1.setBounds(228, 254, 128, 44);
+		contentPane.add(lblNewLabel_1);
+		
+		Objective = new JTextArea();
+		JTextArea obj = EditCompanyBackground.getObjective();
+		Objective = obj;
+		Objective.setBounds(224, 293, 496, 144);
+		contentPane.add(Objective);
 	}
 }

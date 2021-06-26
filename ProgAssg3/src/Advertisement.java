@@ -5,20 +5,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.border.MatteBorder;
-import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
+import javax.swing.JTextArea;
 
-public class StorageDescription extends JFrame {
+public class Advertisement extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -27,7 +23,7 @@ public class StorageDescription extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					StorageDescription frame = new StorageDescription();
+					Advertisement frame = new Advertisement();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,39 +35,19 @@ public class StorageDescription extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public StorageDescription() {
+	public Advertisement() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 688, 486);
+		setBounds(100, 100, 701, 479);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 255, 255));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(224, 96, 438, 225);
-		contentPane.add(scrollPane_1);
-		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Storage Type", "Price Per Day", "Location"
-			}
-		));
-		table.setFont(new Font("Tahoma", Font.BOLD, 11));
-		scrollPane_1.setViewportView(table);
-		
-		JLabel lblStorageDescription = new JLabel("Storage Description");
-		lblStorageDescription.setForeground(Color.BLACK);
-		lblStorageDescription.setFont(new Font("Rockwell", Font.BOLD, 40));
-		lblStorageDescription.setBounds(251, 11, 411, 60);
-		contentPane.add(lblStorageDescription);
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBackground(new Color(102, 153, 255));
-		panel.setBounds(-4, 0, 218, 448);
+		panel.setBounds(0, 0, 218, 448);
 		contentPane.add(panel);
 		
 		JLabel lblNewLabel = new JLabel("Home");
@@ -90,22 +66,22 @@ public class StorageDescription extends JFrame {
 		panel.add(lblNewLabel);
 		
 		JLabel lblAdvertisement = new JLabel("Advertisement");
-		lblAdvertisement.setForeground(Color.BLACK);
-		lblAdvertisement.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				Advertisement ads = new Advertisement(); //calling another frame/window
-				ads.setModalExclusionType(null);
-				ads.setVisible(true);
-				dispose();
-			}
-		});
+		lblAdvertisement.setForeground(new Color(255, 255, 255));
 		lblAdvertisement.setFont(new Font("Rockwell", Font.BOLD, 20));
 		lblAdvertisement.setBounds(10, 125, 171, 24);
 		panel.add(lblAdvertisement);
 		
 		JLabel lblStorageDescription_1 = new JLabel("Storage Description");
-		lblStorageDescription_1.setForeground(new Color(255, 255, 255));
+		lblStorageDescription_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				StorageDescription storage = new StorageDescription(); //calling another frame/window
+				storage.setModalExclusionType(null);
+				storage.setVisible(true);
+				dispose();
+			}
+		});
+		lblStorageDescription_1.setForeground(Color.BLACK);
 		lblStorageDescription_1.setFont(new Font("Rockwell", Font.BOLD, 20));
 		lblStorageDescription_1.setBounds(10, 207, 198, 24);
 		panel.add(lblStorageDescription_1);
@@ -140,25 +116,21 @@ public class StorageDescription extends JFrame {
 		lblLogOut.setBounds(10, 373, 171, 24);
 		panel.add(lblLogOut);
 		
-		JTable t = ManageStorageType.getTable();
-		String type;
-		String price;
-		String location;
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Win 8\\git\\ProgAssg3\\ProgAssg3\\Icon\\ads.PNG"));
+		lblNewLabel_1.setBounds(249, 156, 415, 273);
+		contentPane.add(lblNewLabel_1);
 		
-		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		JLabel lblAdvertisement_1 = new JLabel("Advertisement");
+		lblAdvertisement_1.setForeground(Color.BLACK);
+		lblAdvertisement_1.setFont(new Font("Rockwell", Font.BOLD, 40));
+		lblAdvertisement_1.setBounds(298, 0, 335, 60);
+		contentPane.add(lblAdvertisement_1);
 		
-		for(int i = 0; i<t.getRowCount(); i++) {
-			type = String.valueOf(t.getValueAt(i, 0));
-			price = String.valueOf(t.getValueAt(i, 1));
-			location = String.valueOf(t.getValueAt(i, 2));
-			
-			model.addRow(new Object[]{
-					type,
-					price,
-					location,
-			});
-			
-		}
-		
+		JTextArea txtrGetToRent = new JTextArea();
+		txtrGetToRent.setFont(new Font("Trebuchet MS", Font.PLAIN, 28));
+		txtrGetToRent.setText("Get To Rent A Storage With A\r\nDiscount Up to %");
+		txtrGetToRent.setBounds(249, 75, 426, 83);
+		contentPane.add(txtrGetToRent);
 	}
 }

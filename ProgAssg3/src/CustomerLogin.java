@@ -124,9 +124,9 @@ public class CustomerLogin extends JFrame {
 					if(login == true) {
 						JOptionPane.showMessageDialog(null, "Login successful!");
 						
-						StorageDescription register = new StorageDescription(); //calling another frame/window
-						register.setModalExclusionType(null);
-						register.setVisible(true);
+						CompanyBackground cb = new CompanyBackground(); //calling another frame/window
+						cb.setModalExclusionType(null);
+						cb.setVisible(true);
 						dispose();
 					}
 					else 

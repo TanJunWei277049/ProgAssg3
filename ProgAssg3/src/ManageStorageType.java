@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 
-public class ManageStorage extends JFrame {
+public class ManageStorageType extends JFrame {
 
 	private JPanel contentPane;
 	private static JTable table;
@@ -33,7 +33,7 @@ public class ManageStorage extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ManageStorage frame = new ManageStorage();
+					ManageStorageType frame = new ManageStorageType();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +45,7 @@ public class ManageStorage extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ManageStorage() {
+	public ManageStorageType() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 694, 489);
 		contentPane = new JPanel();
@@ -81,9 +81,9 @@ public class ManageStorage extends JFrame {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Normal storage","90","Kuala Selangor, Sungai Besar, Bidor"},
-				{"Double storey storage","110","Batu Pahat, Kulai, Kuala Langat"},
-				{"Storage with freezer","130","Setia Alam, Kampar, Jeram"}
+				{"Normal storage","90","Kuala Selangor"},
+				{"Double storey storage","110","Batu Pahat, Kulai"},
+				{"Storage with freezer","130","Setia Alam, Kampar"}
 			},
 			new String[] {
 				"Storage Type", "Price Per Day", "Location"
