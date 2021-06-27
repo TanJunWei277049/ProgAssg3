@@ -32,7 +32,12 @@ public class Customer extends JFrame {
 	private JTextField name;
 	private JTextField age;
 	private JTextField contact;
-	private JTable table;
+	private static JTable table;
+	private double price = 0;
+	private static JComboBox comboBoxStorageType;
+	private JTextField textFieldDay;
+	private double discount;
+	private double totalPrice;
 
 	/**
 	 * Launch the application.
@@ -54,6 +59,9 @@ public class Customer extends JFrame {
 	 * Create the frame.
 	 */
 	public Customer() {
+		
+		JTable t = ManageStorageType.getTable();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 857, 569);
 		contentPane = new JPanel();
@@ -192,7 +200,7 @@ public class Customer extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"Name", "Age", "Gender", "Contact", "Storage Type"
+				"Name", "Age", "Gender", "Contact", "Storage Type", "Day", "Discount", "Price"
 			}
 		));
 		table.setFont(new Font("Tahoma", Font.BOLD, 9));
@@ -203,12 +211,37 @@ public class Customer extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				
+				if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(0, 0)))) {  // storage type
+					String p =String.valueOf( t.getValueAt(0, 1));							//set price
+					price=Integer.parseInt(p);
+				}
+				else if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(1, 0)))) {
+					String p =String.valueOf( t.getValueAt(1, 1));
+					price=Integer.parseInt(p);
+				}
+				else if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(2, 0)))) {
+					String p =String.valueOf( t.getValueAt(2, 1));
+					price=Integer.parseInt(p);
+				}
+				
+				if(Integer.parseInt(textFieldDay.getText())>30) {
+					discount = Double.parseDouble(ManageAdvertisement.getDisc());
+				}
+				else
+					discount = 0;
+				
+				totalPrice = price * Integer.parseInt(textFieldDay.getText())*((100-discount)/100);
+				
 				model.addRow(new Object[]{
 						name.getText(),
 						age.getText(),
 						comboBoxGender.getSelectedItem(),
 						contact.getText(),
-						//comboBoxPosition.getSelectedItem(),
+						comboBoxStorageType.getSelectedItem(),
+						textFieldDay.getText(),
+						discount,
+						totalPrice,
+						
 				});
 				
 				if (table.getSelectedRow() == -1) {
@@ -230,7 +263,8 @@ public class Customer extends JFrame {
 				age.setText("");
 				comboBoxGender.setSelectedItem("Select Gender");
 				contact.setText("");
-				//comboBoxPosition.setSelectedItem("Select position");
+				comboBoxStorageType.setSelectedItem("Select position");
+				textFieldDay.setText("");
 			}
 		});
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -262,6 +296,28 @@ public class Customer extends JFrame {
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				DefaultTableModel model = (DefaultTableModel)table.getModel();
+				
+				if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(0, 0)))) {  // storage type
+					String p =String.valueOf( t.getValueAt(0, 1));							//set price
+					price=Integer.parseInt(p);
+				}
+				else if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(1, 0)))) {
+					String p =String.valueOf( t.getValueAt(1, 1));
+					price=Integer.parseInt(p);
+				}
+				else if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(2, 0)))) {
+					String p =String.valueOf( t.getValueAt(2, 1));
+					price=Integer.parseInt(p);
+				}
+				
+				if(Integer.parseInt(textFieldDay.getText())>30) {
+					discount = Double.parseDouble(ManageAdvertisement.getDisc());
+				}
+				else
+					discount = 0;
+				
+				totalPrice = price * Integer.parseInt(textFieldDay.getText())*((100-discount)/100);
+				
 				int i = table.getSelectedRow();
 			    if(i>=0) //if single row is selected than update
 			    {
@@ -269,7 +325,10 @@ public class Customer extends JFrame {
 			    	model.setValueAt(age.getText(),i,1);
 			    	model.setValueAt(comboBoxGender.getSelectedItem(),i,2);
 			    	model.setValueAt(contact.getText(),i,3);
-			    	//model.setValueAt(comboBoxPosition.getSelectedItem(),i,4);
+			    	model.setValueAt(comboBoxStorageType.getSelectedItem(),i,4);
+			    	model.setValueAt(textFieldDay.getText(),i,5);
+			    	model.setValueAt(discount,i,6);
+			    	model.setValueAt(totalPrice,i,7);
 					JOptionPane.showMessageDialog(null, "Update Successfully");
 			    }
 			    else 
@@ -341,5 +400,26 @@ public class Customer extends JFrame {
 		lblNewLabel_1.setBounds(526, 10, 66, 50);
 		panel_1.add(lblNewLabel_1);
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Win 8\\git\\ProgAssg3\\ProgAssg3\\Icon\\shopping cart.jpg"));
+		
+		comboBoxStorageType = new JComboBox();
+		comboBoxStorageType.setModel(new DefaultComboBoxModel(new String[] {"Select Storage Type", String.valueOf(t.getValueAt(0, 0)), String.valueOf(t.getValueAt(1, 0)), String.valueOf(t.getValueAt(2, 0))}));
+		comboBoxStorageType.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		comboBoxStorageType.setBounds(360, 213, 196, 31);
+		contentPane.add(comboBoxStorageType);
+		
+		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("Day :");
+		lblNewLabel_1_1_1_1_1_1.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblNewLabel_1_1_1_1_1_1.setBounds(576, 213, 91, 27);
+		contentPane.add(lblNewLabel_1_1_1_1_1_1);
+		
+		textFieldDay = new JTextField();
+		textFieldDay.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textFieldDay.setColumns(10);
+		textFieldDay.setBounds(635, 213, 196, 31);
+		contentPane.add(textFieldDay);
+	}
+	
+	public static JTable getTable() {
+		return table;
 	}
 }

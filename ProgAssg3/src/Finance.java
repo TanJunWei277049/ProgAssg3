@@ -26,8 +26,9 @@ public class Finance extends JFrame {
 	private JTextField textFieldRevenue;
 	private JTextField textFieldExpenses;
 	private JTextField textFieldNetIncome;
-	private JTable t;
+	private JTable t,s;
 	static double Salary = 0.0;
+	static double sales = 0.0;
 
 	/**
 	 * Launch the application.
@@ -76,6 +77,12 @@ public class Finance extends JFrame {
 		contentPane_1.add(lblIncome);
 		
 		textFieldIncome = new JTextField();
+		s = Customer.getTable();
+		if (s != null) {
+			for (int i = 0; i < s.getRowCount(); i++) {
+				Salary += Double.valueOf(s.getValueAt(i, 7).toString());
+			}
+		}
 		textFieldIncome.setFont(new Font("Rockwell", Font.PLAIN, 20));
 		textFieldIncome.setColumns(10);
 		textFieldIncome.setBounds(202, 23, 149, 33);
@@ -132,7 +139,7 @@ public class Finance extends JFrame {
 		t = Employee.getTable();
 		if (t != null) {
 			for (int i = 0; i < t.getRowCount(); i++) {
-				Salary += Double.valueOf(t.getValueAt(i, 6).toString());
+				Salary += Double.valueOf(t.getValueAt(i, 5).toString());
 			}
 		}
 		textFieldSalary.setFont(new Font("Rockwell", Font.PLAIN, 20));
