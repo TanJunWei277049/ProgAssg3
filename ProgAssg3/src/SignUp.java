@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.ImageIcon;
 
 public class SignUp extends JFrame {
 
@@ -195,6 +196,11 @@ public class SignUp extends JFrame {
 		backButton.setBackground(Color.WHITE);
 		backButton.setBounds(10, 11, 77, 30);
 		contentPane.add(backButton);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Win 8\\git\\ProgAssg3\\ProgAssg3\\Icon\\register.png"));
+		lblNewLabel.setBounds(581, 374, 66, 61);
+		contentPane.add(lblNewLabel);
 	}
 	
 	public static void AddRowToJtable(Object[] dataRow) {

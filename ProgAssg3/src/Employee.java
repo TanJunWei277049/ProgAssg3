@@ -21,15 +21,17 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class Employee extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
+	private static JTable table;
 	private JTextField textFieldName;
 	private JTextField textFieldContact;
 	private JTextField textFieldAge;
 	private JTextField textFieldSalary;
+	
 
 	/**
 	 * Launch the application.
@@ -52,7 +54,7 @@ public class Employee extends JFrame {
 	 */
 	public Employee() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 729, 523);
+		setBounds(100, 100, 729, 595);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 51, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -62,14 +64,14 @@ public class Employee extends JFrame {
 		JLabel lblEmployee = new JLabel("Employee");
 		lblEmployee.setForeground(Color.WHITE);
 		lblEmployee.setFont(new Font("Dialog", Font.BOLD, 35));
-		lblEmployee.setBounds(283, 0, 183, 44);
+		lblEmployee.setBounds(272, 22, 183, 44);
 		contentPane.add(lblEmployee);
 		
 		JPanel contentPane_1 = new JPanel();
 		contentPane_1.setLayout(null);
 		contentPane_1.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane_1.setBackground(new Color(153, 255, 255));
-		contentPane_1.setBounds(10, 42, 693, 175);
+		contentPane_1.setBounds(10, 88, 693, 175);
 		contentPane.add(contentPane_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Name :");
@@ -152,7 +154,7 @@ public class Employee extends JFrame {
 		contentPane_1_1.setLayout(null);
 		contentPane_1_1.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane_1_1.setBackground(new Color(153, 255, 255));
-		contentPane_1_1.setBounds(10, 277, 693, 149);
+		contentPane_1_1.setBounds(10, 336, 693, 149);
 		contentPane.add(contentPane_1_1);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
@@ -192,7 +194,7 @@ public class Employee extends JFrame {
 				}
 				}
 		});
-		btnNewButton.setBounds(20, 228, 143, 38);
+		btnNewButton.setBounds(22, 274, 143, 38);
 		contentPane.add(btnNewButton);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
@@ -213,7 +215,7 @@ public class Employee extends JFrame {
 				}
 			}
 		});
-		btnDelete.setBounds(360, 228, 146, 38);
+		btnDelete.setBounds(362, 274, 146, 38);
 		contentPane.add(btnDelete);
 		btnDelete.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
@@ -228,7 +230,7 @@ public class Employee extends JFrame {
 				textFieldSalary.setText("");
 			}
 		});
-		btnReset.setBounds(186, 228, 146, 38);
+		btnReset.setBounds(188, 274, 146, 38);
 		contentPane.add(btnReset);
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
@@ -254,7 +256,7 @@ public class Employee extends JFrame {
 			}
 		});
 		btnUpdate.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnUpdate.setBounds(531, 228, 146, 38);
+		btnUpdate.setBounds(533, 274, 146, 38);
 		contentPane.add(btnUpdate);
 		
 		JButton btnUpload = new JButton("UPLOAD");
@@ -284,16 +286,20 @@ public class Employee extends JFrame {
 			}
 		});
 		btnUpload.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnUpload.setBounds(81, 437, 146, 38);
+		btnUpload.setBounds(82, 496, 146, 38);
 		contentPane.add(btnUpload);
 		
 		JButton btnFinance = new JButton("FINANCE");
 		btnFinance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Finance f = new Finance(); //calling another frame/window
+				f.setModalExclusionType(null);
+				f.setVisible(true);
+				dispose();
 			}
 		});
 		btnFinance.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnFinance.setBounds(496, 437, 146, 38);
+		btnFinance.setBounds(497, 496, 146, 38);
 		contentPane.add(btnFinance);
 		
 		JButton backButton = new JButton("Back");
@@ -321,9 +327,16 @@ public class Employee extends JFrame {
 			}
 		});
 		btnPrint.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnPrint.setBounds(283, 437, 146, 38);
+		btnPrint.setBounds(284, 496, 146, 38);
 		contentPane.add(btnPrint);
 		
-		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Win 8\\git\\ProgAssg3\\ProgAssg3\\Icon\\human.png"));
+		lblNewLabel.setBounds(467, 0, 88, 88);
+		contentPane.add(lblNewLabel);	
+	}
+	
+	public static JTable getTable() {
+		return table;
 	}
 }

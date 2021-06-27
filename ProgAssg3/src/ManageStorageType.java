@@ -17,6 +17,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
 
 public class ManageStorageType extends JFrame {
 
@@ -49,7 +50,7 @@ public class ManageStorageType extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 694, 489);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(0, 51, 153));
+		contentPane.setBackground(new Color(102, 153, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -71,7 +72,7 @@ public class ManageStorageType extends JFrame {
 		JLabel lblManageStorage = new JLabel("Manage Storage");
 		lblManageStorage.setForeground(Color.WHITE);
 		lblManageStorage.setFont(new Font("Dialog", Font.BOLD, 35));
-		lblManageStorage.setBounds(223, 33, 294, 44);
+		lblManageStorage.setBounds(224, 23, 294, 44);
 		contentPane.add(lblManageStorage);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
@@ -95,7 +96,7 @@ public class ManageStorageType extends JFrame {
 		JPanel contentPane_1 = new JPanel();
 		contentPane_1.setLayout(null);
 		contentPane_1.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane_1.setBackground(new Color(153, 255, 255));
+		contentPane_1.setBackground(new Color(204, 255, 204));
 		contentPane_1.setBounds(36, 250, 617, 149);
 		contentPane.add(contentPane_1);
 		
@@ -190,6 +191,11 @@ DefaultTableModel model = (DefaultTableModel) table.getModel();
 		btnDelete.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnDelete.setBounds(410, 405, 146, 38);
 		contentPane.add(btnDelete);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Win 8\\git\\ProgAssg3\\ProgAssg3\\Icon\\storage.png"));
+		lblNewLabel.setBounds(512, 15, 98, 52);
+		contentPane.add(lblNewLabel);
 	}
 	
 	public static JTable getTable() {

@@ -128,8 +128,10 @@ public class Advertisement extends JFrame {
 		contentPane.add(lblAdvertisement_1);
 		
 		JTextArea txtrGetToRent = new JTextArea();
+		txtrGetToRent.setEditable(false);
+		String d = ManageAdvertisement.getDisc();
 		txtrGetToRent.setFont(new Font("Trebuchet MS", Font.PLAIN, 28));
-		txtrGetToRent.setText("Get To Rent A Storage With A\r\nDiscount Up to %");
+		txtrGetToRent.setText("Get To Rent A Storage With A\r\nDiscount Up to " + d + "%");
 		txtrGetToRent.setBounds(249, 75, 426, 83);
 		contentPane.add(txtrGetToRent);
 	}

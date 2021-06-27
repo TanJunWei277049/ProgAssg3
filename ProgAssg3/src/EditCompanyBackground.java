@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
+import javax.swing.ImageIcon;
 
 public class EditCompanyBackground extends JFrame {
 
@@ -99,6 +100,11 @@ public class EditCompanyBackground extends JFrame {
 		lblCompanyAddress.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblCompanyAddress.setBounds(19, 66, 214, 44);
 		contentPane.add(lblCompanyAddress);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Win 8\\git\\ProgAssg3\\ProgAssg3\\Icon\\Pen-5-icon.png"));
+		lblNewLabel_1.setBounds(604, 0, 60, 58);
+		contentPane.add(lblNewLabel_1);
 	}
 	
 	public static JTextArea getObjective() {

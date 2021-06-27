@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class StorageDescription extends JFrame {
 
@@ -140,6 +141,11 @@ public class StorageDescription extends JFrame {
 		lblLogOut.setBounds(10, 373, 171, 24);
 		panel.add(lblLogOut);
 		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Win 8\\git\\ProgAssg3\\ProgAssg3\\Icon\\text-file-icon.png"));
+		lblNewLabel_2.setBounds(495, 332, 135, 116);
+		contentPane.add(lblNewLabel_2);
+		
 		JTable t = ManageStorageType.getTable();
 		String type;
 		String price;
@@ -147,18 +153,21 @@ public class StorageDescription extends JFrame {
 		
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		
-		for(int i = 0; i<t.getRowCount(); i++) {
-			type = String.valueOf(t.getValueAt(i, 0));
-			price = String.valueOf(t.getValueAt(i, 1));
-			location = String.valueOf(t.getValueAt(i, 2));
-			
-			model.addRow(new Object[]{
-					type,
-					price,
-					location,
-			});
-			
+		if (t != null) {
+			for(int i = 0; i<t.getRowCount(); i++) {
+				type = String.valueOf(t.getValueAt(i, 0));
+				price = String.valueOf(t.getValueAt(i, 1));
+				location = String.valueOf(t.getValueAt(i, 2));
+				
+				model.addRow(new Object[]{
+						type,
+						price,
+						location,
+				});
+				
+			}
 		}
+		
 		
 	}
 }

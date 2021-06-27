@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
+import javax.swing.JTable;
 import javax.swing.ImageIcon;
 
 public class Finance extends JFrame {
@@ -25,6 +26,8 @@ public class Finance extends JFrame {
 	private JTextField textFieldRevenue;
 	private JTextField textFieldExpenses;
 	private JTextField textFieldNetIncome;
+	private JTable t;
+	static double Salary = 0.0;
 
 	/**
 	 * Launch the application.
@@ -126,9 +129,16 @@ public class Finance extends JFrame {
 		contentPane_1_1.add(lbl_1_1_2);
 		
 		textFieldSalary = new JTextField();
+		t = Employee.getTable();
+		if (t != null) {
+			for (int i = 0; i < t.getRowCount(); i++) {
+				Salary += Double.valueOf(t.getValueAt(i, 6).toString());
+			}
+		}
 		textFieldSalary.setFont(new Font("Rockwell", Font.PLAIN, 20));
 		textFieldSalary.setColumns(10);
 		textFieldSalary.setBounds(202, 9, 149, 33);
+		textFieldSalary.setText(String.valueOf(Salary));
 		contentPane_1_1.add(textFieldSalary);
 		
 		textFieldMaintenance = new JTextField();

@@ -14,6 +14,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class CustomerLogin extends JFrame {
 
@@ -161,5 +162,15 @@ public class CustomerLogin extends JFrame {
 		btnSignUp.setBackground(Color.WHITE);
 		btnSignUp.setBounds(288, 397, 123, 46);
 		contentPane.add(btnSignUp);
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\Win 8\\git\\ProgAssg3\\ProgAssg3\\Icon\\User.png"));
+		lblNewLabel_3.setBounds(86, 111, 47, 53);
+		contentPane.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("");
+		lblNewLabel_3_1.setIcon(new ImageIcon("C:\\Users\\Win 8\\git\\ProgAssg3\\ProgAssg3\\Icon\\password.png"));
+		lblNewLabel_3_1.setBounds(86, 194, 40, 53);
+		contentPane.add(lblNewLabel_3_1);
 	}
 }

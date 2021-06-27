@@ -132,8 +132,11 @@ public class CompanyBackground extends JFrame {
 		contentPane.add(lblCompanyAddress);
 		
 		CompanyAddress = new JTextArea();
+		CompanyAddress.setEditable(false);
 		JTextArea ca = EditCompanyBackground.getCompany();
-		CompanyAddress = ca;
+		if(ca != null) {
+			CompanyAddress = ca;
+		}
 		CompanyAddress.setBounds(228, 151, 421, 83);
 		contentPane.add(CompanyAddress);
 		
@@ -143,8 +146,11 @@ public class CompanyBackground extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		Objective = new JTextArea();
+		Objective.setEditable(false);
 		JTextArea obj = EditCompanyBackground.getObjective();
-		Objective = obj;
+		if(obj != null) {
+			Objective = obj;
+		}
 		Objective.setBounds(224, 293, 496, 144);
 		contentPane.add(Objective);
 	}

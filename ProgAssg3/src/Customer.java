@@ -24,6 +24,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class Customer extends JFrame {
 
@@ -325,10 +326,20 @@ public class Customer extends JFrame {
 		btnUpload.setBounds(648, 480, 146, 38);
 		contentPane.add(btnUpload);
 		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(217, 0, 624, 68);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
 		JLabel lblAdvertisement_1 = new JLabel("Customer Registration");
+		lblAdvertisement_1.setBounds(52, 0, 491, 60);
+		panel_1.add(lblAdvertisement_1);
 		lblAdvertisement_1.setForeground(Color.BLACK);
 		lblAdvertisement_1.setFont(new Font("Rockwell", Font.BOLD, 40));
-		lblAdvertisement_1.setBounds(282, 11, 491, 60);
-		contentPane.add(lblAdvertisement_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setBounds(526, 10, 66, 50);
+		panel_1.add(lblNewLabel_1);
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Win 8\\git\\ProgAssg3\\ProgAssg3\\Icon\\shopping cart.jpg"));
 	}
 }
