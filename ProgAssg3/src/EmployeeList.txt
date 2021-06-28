@@ -1,0 +1,4 @@
+Ali  21  Male  564456  Salesman  1500  
+________
+Mary  22  Female  325698  Manager  2500  
+________

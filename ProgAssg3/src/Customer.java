@@ -209,28 +209,92 @@ public class Customer extends JFrame {
 		JButton btnNewButton = new JButton("ADD RECORD");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				
-				if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(0, 0)))) {  // storage type
-					String p =String.valueOf( t.getValueAt(0, 1));							//set price
-					price=Integer.parseInt(p);
-				}
-				else if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(1, 0)))) {
-					String p =String.valueOf( t.getValueAt(1, 1));
-					price=Integer.parseInt(p);
-				}
-				else if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(2, 0)))) {
-					String p =String.valueOf( t.getValueAt(2, 1));
-					price=Integer.parseInt(p);
+				int day;
+				double rentPrice;
+				double totalPrice = 0;
+				double discount = 0;
+				String selection = (String)comboBoxStorageType.getSelectedItem();
+				day = Integer.parseInt(textFieldDay.getText());
+				
+				if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(0, 0)))) {
+					if (day<7) {
+					Payment type1 = new TotalPrice();
+					rentPrice  = type1.rentPrice(selection, day);
+					totalPrice = type1.getPayment(selection, day);
+				    }
+					
+					else if (day>=7 && day<30) {
+					Payment type1 = new TotalPrice();
+					rentPrice  = type1.rentPrice(selection, day);
+					totalPrice = type1.getPayment(selection, day);
+					}
+					
+					else {
+					Payment type1 = new TotalPrice();
+					discount   = type1.disc();
+					rentPrice  = type1.rentPrice(selection, day);
+					
+					totalPrice = type1.getPayment(selection, day, discount);
+					
+					}
 				}
 				
-				if(Integer.parseInt(textFieldDay.getText())>30) {
-					discount = Double.parseDouble(ManageAdvertisement.getDisc());
+				 if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(1, 0)))) {
+					if (day<7) {
+					Payment type2 = new TotalPrice();
+					rentPrice  = type2.rentPrice(selection, day);
+					
+					totalPrice = type2.getPayment(selection, day);
+					
+				    }
+					
+					else if (day>=7 && day<30) {
+					Payment type2 = new TotalPrice();
+					rentPrice  = type2.rentPrice(selection, day);
+					
+					totalPrice = type2.getPayment(selection, day);
+					
+					}
+					
+					else {
+					Payment type2 = new TotalPrice();
+					discount   = type2.disc();
+					rentPrice  = type2.rentPrice(selection, day);
+					
+					totalPrice = type2.getPayment(selection, day, discount);
+					
+					}
+				 }
+					
+				 if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(2, 0)))) {
+					if (day<7) {
+					Payment type3 = new TotalPrice();
+					rentPrice  = type3.rentPrice(selection, day);
+					
+					totalPrice = type3.getPayment(selection, day);
+					
+				    }
+					
+					else if (day>=7 && day<30) {
+					Payment type3 = new TotalPrice();
+					rentPrice  = type3.rentPrice(selection, day);
+					
+					totalPrice = type3.getPayment(selection, day);
+					
+					}
+					
+					else {
+					Payment type3 = new TotalPrice();
+					discount   = type3.disc();
+					rentPrice  = type3.rentPrice(selection, day);
+					
+					totalPrice = type3.getPayment(selection, day, discount);
+					
+					}
 				}
-				else
-					discount = 0;
-				
-				totalPrice = price * Integer.parseInt(textFieldDay.getText())*((100-discount)/100);
 				
 				model.addRow(new Object[]{
 						name.getText(),
@@ -239,7 +303,7 @@ public class Customer extends JFrame {
 						contact.getText(),
 						comboBoxStorageType.getSelectedItem(),
 						textFieldDay.getText(),
-						discount,
+						discount*100,
 						totalPrice,
 						
 				});
@@ -297,26 +361,89 @@ public class Customer extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				DefaultTableModel model = (DefaultTableModel)table.getModel();
 				
-				if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(0, 0)))) {  // storage type
-					String p =String.valueOf( t.getValueAt(0, 1));							//set price
-					price=Integer.parseInt(p);
-				}
-				else if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(1, 0)))) {
-					String p =String.valueOf( t.getValueAt(1, 1));
-					price=Integer.parseInt(p);
-				}
-				else if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(2, 0)))) {
-					String p =String.valueOf( t.getValueAt(2, 1));
-					price=Integer.parseInt(p);
+				int day;
+				double rentPrice;
+				double totalPrice = 0;
+				double discount = 0;
+				String selection = (String)comboBoxStorageType.getSelectedItem();
+				day = Integer.parseInt(textFieldDay.getText());
+				
+				if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(0, 0)))) {
+					if (day<7) {
+					Payment type1 = new TotalPrice();
+					rentPrice  = type1.rentPrice(selection, day);
+					totalPrice = type1.getPayment(selection, day);
+				    }
+					
+					else if (day>=7 && day<30) {
+					Payment type1 = new TotalPrice();
+					rentPrice  = type1.rentPrice(selection, day);
+					totalPrice = type1.getPayment(selection, day);
+					}
+					
+					else {
+					Payment type1 = new TotalPrice();
+					discount   = type1.disc();
+					rentPrice  = type1.rentPrice(selection, day);
+					
+					totalPrice = type1.getPayment(selection, day, discount);
+					
+					}
 				}
 				
-				if(Integer.parseInt(textFieldDay.getText())>30) {
-					discount = Double.parseDouble(ManageAdvertisement.getDisc());
+				 if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(1, 0)))) {
+					if (day<7) {
+					Payment type2 = new TotalPrice();
+					rentPrice  = type2.rentPrice(selection, day);
+					
+					totalPrice = type2.getPayment(selection, day);
+					
+				    }
+					
+					else if (day>=7 && day<30) {
+					Payment type2 = new TotalPrice();
+					rentPrice  = type2.rentPrice(selection, day);
+					
+					totalPrice = type2.getPayment(selection, day);
+					
+					}
+					
+					else {
+					Payment type2 = new TotalPrice();
+					discount   = type2.disc();
+					rentPrice  = type2.rentPrice(selection, day);
+					
+					totalPrice = type2.getPayment(selection, day, discount);
+					
+					}
+				 }
+					
+				 if(comboBoxStorageType.getSelectedItem().equals(String.valueOf( t.getValueAt(2, 0)))) {
+					if (day<7) {
+					Payment type3 = new TotalPrice();
+					rentPrice  = type3.rentPrice(selection, day);
+					
+					totalPrice = type3.getPayment(selection, day);
+					
+				    }
+					
+					else if (day>=7 && day<30) {
+					Payment type3 = new TotalPrice();
+					rentPrice  = type3.rentPrice(selection, day);
+					
+					totalPrice = type3.getPayment(selection, day);
+					
+					}
+					
+					else {
+					Payment type3 = new TotalPrice();
+					discount   = type3.disc();
+					rentPrice  = type3.rentPrice(selection, day);
+					
+					totalPrice = type3.getPayment(selection, day, discount);
+					
+					}
 				}
-				else
-					discount = 0;
-				
-				totalPrice = price * Integer.parseInt(textFieldDay.getText())*((100-discount)/100);
 				
 				int i = table.getSelectedRow();
 			    if(i>=0) //if single row is selected than update
@@ -327,7 +454,7 @@ public class Customer extends JFrame {
 			    	model.setValueAt(contact.getText(),i,3);
 			    	model.setValueAt(comboBoxStorageType.getSelectedItem(),i,4);
 			    	model.setValueAt(textFieldDay.getText(),i,5);
-			    	model.setValueAt(discount,i,6);
+			    	model.setValueAt(discount*100,i,6);
 			    	model.setValueAt(totalPrice,i,7);
 					JOptionPane.showMessageDialog(null, "Update Successfully");
 			    }
