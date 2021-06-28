@@ -385,9 +385,7 @@ public class Customer extends JFrame {
 					Payment type1 = new TotalPrice();
 					discount   = type1.disc();
 					rentPrice  = type1.rentPrice(selection, day);
-					
 					totalPrice = type1.getPayment(selection, day, discount);
-					
 					}
 				}
 				
@@ -395,26 +393,20 @@ public class Customer extends JFrame {
 					if (day<7) {
 					Payment type2 = new TotalPrice();
 					rentPrice  = type2.rentPrice(selection, day);
-					
 					totalPrice = type2.getPayment(selection, day);
-					
 				    }
 					
 					else if (day>=7 && day<30) {
 					Payment type2 = new TotalPrice();
 					rentPrice  = type2.rentPrice(selection, day);
-					
 					totalPrice = type2.getPayment(selection, day);
-					
 					}
 					
 					else {
 					Payment type2 = new TotalPrice();
 					discount   = type2.disc();
 					rentPrice  = type2.rentPrice(selection, day);
-					
 					totalPrice = type2.getPayment(selection, day, discount);
-					
 					}
 				 }
 					
@@ -422,26 +414,20 @@ public class Customer extends JFrame {
 					if (day<7) {
 					Payment type3 = new TotalPrice();
 					rentPrice  = type3.rentPrice(selection, day);
-					
 					totalPrice = type3.getPayment(selection, day);
-					
 				    }
 					
 					else if (day>=7 && day<30) {
 					Payment type3 = new TotalPrice();
 					rentPrice  = type3.rentPrice(selection, day);
-					
 					totalPrice = type3.getPayment(selection, day);
-					
 					}
 					
 					else {
 					Payment type3 = new TotalPrice();
 					discount   = type3.disc();
 					rentPrice  = type3.rentPrice(selection, day);
-					
 					totalPrice = type3.getPayment(selection, day, discount);
-					
 					}
 				}
 				
