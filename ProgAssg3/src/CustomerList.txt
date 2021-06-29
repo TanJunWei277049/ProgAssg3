@@ -1,4 +1,6 @@
-Abu  31  Male  46546  Normal storage  35  50.0  1575.0  
+aaa  21  Male  654654  Normal storage  1  0.0  90.0  
 ________
-Aaa  31  Male  46546  Double storey storage  8  0.0  720.0  
+aaa  21  Male  654654  Normal storage  8  0.0  560.0  
+________
+aaa  21  Male  654654  Normal storage  31  10.0  2511.0  
 ________

@@ -86,6 +86,7 @@ public class Finance extends JFrame {
 		textFieldIncome.setFont(new Font("Rockwell", Font.PLAIN, 20));
 		textFieldIncome.setColumns(10);
 		textFieldIncome.setBounds(202, 23, 149, 33);
+		textFieldIncome.setText(String.valueOf(sales));
 		contentPane_1.add(textFieldIncome);
 		
 		JLabel lbl_1_1_3 = new JLabel(":");
