@@ -80,7 +80,7 @@ public class Finance extends JFrame {
 		s = Customer.getTable();
 		if (s != null) {
 			for (int i = 0; i < s.getRowCount(); i++) {
-				Salary += Double.valueOf(s.getValueAt(i, 7).toString());
+				sales += Double.valueOf(s.getValueAt(i, 7).toString());
 			}
 		}
 		textFieldIncome.setFont(new Font("Rockwell", Font.PLAIN, 20));
